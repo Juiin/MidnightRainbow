@@ -311,14 +311,6 @@
         <script>scripts\st_ov_scout.gml</script>
       </scripts>
     </scripts>
-    <scripts name="O G">
-      <script>scripts\scr_cooldown_new.gml</script>
-      <script>scripts\scr_global_cooldown_new.gml</script>
-      <script>scripts\scr_blink_new.gml</script>
-      <script>scripts\scr_skill_inputs_new.gml</script>
-      <script>scripts\scr_skills_new.gml</script>
-      <script>scripts\wall_escape_new.gml</script>
-    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_peralta</font>
