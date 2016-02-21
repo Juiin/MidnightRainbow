@@ -3,7 +3,7 @@
   <spriteName>spr_vendor</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-30</depth>
   <persistent>0</persistent>
   <parentName>obj_npc_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -241,7 +241,9 @@ ds_grid_destroy(shop_grid);
           <argument>
             <kind>1</kind>
             <string>draw_self();
-scr_text_outlined_scaled(x,y-16,"VENDOR",c_white,c_black,1,1);
+var blend;
+if(talkable) blend = c_yellow else blend = c_white;
+scr_text_outlined_scaled(x,y-16,"VENDOR",blend,c_black,1,1);
 
 
 if(show_window)

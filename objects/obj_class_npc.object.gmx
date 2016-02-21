@@ -84,7 +84,9 @@ else if(!show_window &amp;&amp; instance_exists(obj_class_tree))
           <argument>
             <kind>1</kind>
             <string>draw_self();
-scr_text_outlined_scaled(x,y-16,"SKILL TREE",c_white,c_black,1,1);
+var blend;
+if(talkable) blend = c_yellow else blend = c_white;
+scr_text_outlined_scaled(x,y-16,"SKILL TREE",blend,c_black,1,1);
 </string>
           </argument>
         </arguments>

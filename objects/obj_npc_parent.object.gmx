@@ -50,26 +50,29 @@ open_stash = false;
           <argument>
             <kind>1</kind>
             <string>///Player Interaction
-if(obj_player_parent.state_name != "Cutscene")
+if(instance_exists(obj_player_parent))
 {
-    if(distance_to_object(obj_player_parent) &lt;= 32)
+    if(obj_player_parent.state_name != "Cutscene")
     {
-        if(mouse_x &gt;= x-sprite_get_width(sprite_index) &amp;&amp; mouse_x &lt;= x+sprite_get_width(sprite_index) &amp;&amp; mouse_y &gt;= y-sprite_get_height(sprite_index) &amp;&amp; mouse_y &lt;= y+sprite_get_height(sprite_index))
+        if(distance_to_object(obj_player_parent) &lt;= 48)
         {
-            if(mouse_check_button_released(mb_left))
+            if(mouse_x &gt;= x-sprite_get_width(sprite_index) &amp;&amp; mouse_x &lt;= x+sprite_get_width(sprite_index) &amp;&amp; mouse_y &gt;= y-sprite_get_height(sprite_index) &amp;&amp; mouse_y &lt;= y+sprite_get_height(sprite_index))
             {
-                if(!show_window)
+                if(mouse_check_button_released(mb_left))
                 {
-                    show_window = true;
-                    ///Set States
-                    with(obj_player_parent) state_switch("Cutscene");
-                    with(obj_camera) state_switch("Fixed Player");
-                    
-                    if(open_stash)
+                    if(!show_window)
                     {
-                        instance_create(0,0,obj_stash);
+                        show_window = true;
+                        ///Set States
+                        with(obj_player_parent) state_switch("Cutscene");
+                        if(instance_exists(obj_camera)) with(obj_camera) state_switch("Fixed Player");
+                        
+                        if(open_stash)
+                        {
+                            instance_create(0,0,obj_stash);
+                        }
+                        
                     }
-                    
                 }
             }
         }
@@ -77,18 +80,39 @@ if(obj_player_parent.state_name != "Cutscene")
 }
 
 
+
+
 if(show_window &amp;&amp; keyboard_check_pressed(vk_escape))
 {
     show_window = false;
-    with(obj_player_parent) state_switch_previous();
-    with(obj_camera) state_switch("Loose Player");
+    if(instance_exists(obj_player_parent)) with(obj_player_parent) state_switch_previous();
+    if(instance_exists(obj_camera)) with(obj_camera) state_switch("Loose Player");
     
-    if(instance_exists(obj_stash))
-    {
-        with(obj_stash) instance_destroy();
-    }
+    if(instance_exists(obj_stash)) with(obj_stash) instance_destroy();
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Mouse Variable
+talkable = (mouse_x &gt;= x-sprite_get_width(sprite_index) &amp;&amp; mouse_x &lt;= x+sprite_get_width(sprite_index) &amp;&amp; mouse_y &gt;= y-sprite_get_height(sprite_index) &amp;&amp; mouse_y &lt;= y+sprite_get_height(sprite_index) &amp;&amp; distance_to_object(obj_player_parent) &lt;= 48)
 </string>
           </argument>
         </arguments>
