@@ -164,7 +164,7 @@ switch(class)
                  switch(xx)
                  {
                      case 1:
-                     obj_player_parent.charge_up_charges--;
+                     obj_player_parent.charge_up_charges-=2;
                      break;
                      case 2:
                      obj_player_parent.blink_charges_max--;

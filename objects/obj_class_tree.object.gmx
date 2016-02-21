@@ -185,7 +185,7 @@ switch(global.class)
     ds_map_replace(tree_array[6,5],"description","50% longer Burning Ground Duration");
     ds_map_replace(tree_array[7,5],"description","25% increased Flameblast Size");
     ds_map_replace(tree_array[8,5],"description","20% increased Flameblast Damage");
-    ds_map_replace(tree_array[1,6],"description","Charge Up replenishes 1 extra Charge");
+    ds_map_replace(tree_array[1,6],"description","Charge Up replenishes 2 extra Charges");
     ds_map_replace(tree_array[2,6],"description","Blink can hold up to 1 additional Charge");
     ds_map_replace(tree_array[3,6],"description","30% increased Burning Ground Size");
     ds_map_replace(tree_array[4,6],"description","10% faster Fire Rate for Fire Towers");
