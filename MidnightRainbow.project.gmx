@@ -393,8 +393,6 @@
       <object>objects\obj_item_slot_npc</object>
     </objects>
     <object>objects\obj_warp</object>
-    <object>objects\obj_warp_to_generated</object>
-    <object>objects\obj_warp_to_town</object>
     <objects name="Pickup">
       <object>objects\obj_pickup_parent</object>
       <object>objects\obj_gold_pickup</object>
