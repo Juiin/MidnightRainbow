@@ -315,14 +315,14 @@ mouse_inside_cancel = (mouse_x &gt;= tree_start_x+128 &amp;&amp; mouse_x &lt;= t
           <argument>
             <kind>1</kind>
             <string>///Allocating
-if(mouse_check_button_pressed(mb_left) &amp;&amp; mouse_inside_tree &amp;&amp; skill_points &gt; 0)
+if(mouse_check_button_pressed(mb_left) &amp;&amp; mouse_inside_tree)
 {
     var xx = ((mouse_x-tree_start_x) div 64);
     var yy = ((mouse_y-tree_start_y) div 64);
     //if field valid
     if(scr_check_allocateable(xx,yy))
     {
-        if(!scr_check_temp_allocated(xx,yy))
+        if(!scr_check_temp_allocated(xx,yy) &amp;&amp; skill_points &gt; 0)
         {
             ds_list_add(temp_allocated,ds_map_create());
             ds_map_add(temp_allocated[| ds_list_size(temp_allocated)-1],"xx",xx);

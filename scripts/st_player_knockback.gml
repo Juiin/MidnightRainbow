@@ -2,7 +2,7 @@ movement_and_collision(knockback_dir,knockback_spd,obj_solid,true);
 
 if(state_new)
 {
-    obj_camera.screen_shake+=5;
+    if(instance_exists(obj_camera)) obj_camera.screen_shake+=5;
     red = instance_create(x,y,obj_red_flash);
     red.duration = room_speed/4;
 }

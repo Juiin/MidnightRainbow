@@ -483,7 +483,7 @@ for(i=0;i&lt;ds_list_size(buff_list);i++)
             <string>///DEBUG
 if(global.debug)
 {
-    draw_text(view_xview[0]+60,view_yview[0]+10,state_name);
+    draw_text(view_xview[0]+360,view_yview[0]+10,state_name);
     draw_circle(x,y,total_pickup_radius,true);
 }
 
@@ -510,7 +510,8 @@ if(global.debug)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(instance_exists(obj_stat_sheet))
+            <string>///Create Stat Sheet
+if(instance_exists(obj_stat_sheet))
 {
     with(obj_stat_sheet) instance_destroy();
 }
