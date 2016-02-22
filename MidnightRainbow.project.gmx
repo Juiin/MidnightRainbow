@@ -314,6 +314,7 @@
       </scripts>
     </scripts>
     <script>scripts\approach.gml</script>
+    <script>scripts\scr_spawn_pieces.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_peralta</font>
@@ -397,6 +398,8 @@
     <objects name="Hitbox">
       <object>objects\obj_hitbox_parent</object>
     </objects>
+    <object>objects\obj_shattered_piece</object>
+    <object>objects\obj_breakable_parent</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>

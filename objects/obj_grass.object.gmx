@@ -80,6 +80,12 @@ if (xskew == xset) xset *= -0.5;
             <string>///Collsion
 if(place_meeting(x,y,obj_player_parent)) if(obj_player_parent.state_name == "Walk") xset = 8;
 if(place_meeting(x,y,obj_fireball)) xset = 8;
+
+with(obj_flameblast)
+{
+    if(place_meeting(x,y,other.id) &amp;&amp; explode) other.xset = 16;
+}
+
 </string>
           </argument>
         </arguments>

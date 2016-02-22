@@ -111,6 +111,15 @@ if(explode)
             scr_damage_self(other.damage);
         }       
     }
+    with(obj_breakable_parent)
+    {
+        if(place_meeting(x,y,other.id))
+        {
+            instance_destroy();
+        }
+        
+    }
+    
 }
 
 </string>
