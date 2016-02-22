@@ -365,6 +365,28 @@ for(var i=0;i&lt;grid_width;i++)
         }    
     }
 }
+//Grass
+for(var i=0;i&lt;grid_width;i++)
+{
+    for(var j=0;j&lt;grid_height;j++)
+    {
+        if(grid[# i ,j] == FLOOR)
+        {
+            if(scr_chance(0.1))
+            {
+                var xoff = 0;
+                for(var k=0;k&lt;5;k++)
+                {
+                    var xscale = random_range(0.5,1);
+                    var inst = instance_create(i*CELL_WIDTH+xoff,j*CELL_HEIGHT+CELL_HEIGHT,obj_grass);
+                    inst.image_xscale = xscale;
+                    xoff+=xscale*sprite_get_width(spr_grass);
+                }
+            }
+        }    
+    }
+}
+
 
 //destroy not needed ds
 for(var i=0;i&lt;ds_list_size(c);i++)

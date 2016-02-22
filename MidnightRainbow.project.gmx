@@ -33,6 +33,7 @@
     <sprite>sprites\spr_back</sprite>
     <sprite>sprites\spr_fire_tower</sprite>
     <sprite>sprites\spr_flameblast</sprite>
+    <sprite>sprites\spr_grass</sprite>
     <sprite>sprites\spr_torch</sprite>
     <sprite>sprites\spr_recharge_buff</sprite>
     <sprite>sprites\spr_recharge_buff_aura</sprite>
@@ -312,6 +313,7 @@
         <script>scripts\st_ov_scout.gml</script>
       </scripts>
     </scripts>
+    <script>scripts\approach.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_peralta</font>
@@ -366,6 +368,7 @@
       <object>objects\obj_overworld_controller</object>
     </objects>
     <objects name="Deco">
+      <object>objects\obj_grass</object>
       <object>objects\obj_torch</object>
       <object>objects\obj_red_flash</object>
     </objects>
