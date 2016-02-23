@@ -25,7 +25,50 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_spawn_pieces(irandom_range(2,3),irandom_range(2,3),sprite_index,image_index);
+            <string>///Spawn Pieces
+scr_spawn_pieces(irandom_range(2,3),irandom_range(2,3),sprite_index,image_index);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Reward EXP/Gold
+var gold_amount = multi_chance(0,80,1,15,2,5);
+var exp_amount = multi_chance(0,80,1,15,2,5);
+
+
+for(var i=0;i&lt;gold_amount;i++)
+{
+
+    var inst = instance_create(x,y,obj_gold_pickup);
+    inst.start_x = x;
+    inst.start_y = y;
+    inst.target_x = x+random_range(-48,48);
+    inst.target_y = y+random_range(-48,48);
+}
+for(var i=0;i&lt;exp_amount;i++)
+{
+    var inst = instance_create(x,y,obj_exp_pickup);
+    inst.start_x = x;
+    inst.start_y = y;
+    inst.target_x = x+random_range(-48,48);
+    inst.target_y = y+random_range(-48,48);
+}
 </string>
           </argument>
         </arguments>

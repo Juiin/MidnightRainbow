@@ -96,7 +96,7 @@ base_knockback_duration = room_speed;
 knockback_duration = base_knockback_duration * (1-total_stun_recovery);
 
 //Pickup Radius
-total_pickup_radius = 100;
+total_pickup_radius = 150;
 
 //Attack Speed
 base_attack_speed = 1;

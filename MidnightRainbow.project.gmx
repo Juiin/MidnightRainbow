@@ -315,6 +315,7 @@
     </scripts>
     <script>scripts\approach.gml</script>
     <script>scripts\scr_spawn_pieces.gml</script>
+    <script>scripts\multi_chance.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_peralta</font>
