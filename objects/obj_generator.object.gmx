@@ -393,11 +393,64 @@ for(var i=0;i&lt;grid_width;i++)
     {
         if(grid[# i ,j] == FLOOR)
         {
-            if(scr_chance(0.1))
+            if(scr_nearby_value(grid,i,j,WALL))
             {
-                instance_create(i*CELL_WIDTH,j*CELL_HEIGHT,obj_vase);
-                instance_create(i*CELL_WIDTH+sprite_get_width(spr_vase),j*CELL_HEIGHT,obj_vase);
-                instance_create(i*CELL_WIDTH+(sprite_get_width(spr_vase)*2),j*CELL_HEIGHT,obj_vase);
+                if(scr_chance(0.5))
+                {
+                    //We want to spawn vases here, need to figure out where exactly
+                    
+                    //Add all possible Nearby Walls to list
+                    var wall_list = ds_list_create();
+                    if(grid[# i-1,j] == WALL) ds_list_add(wall_list,"Left");
+                    if(grid[# i+1,j] == WALL) ds_list_add(wall_list,"Right");
+                    if(grid[# i,j-1] == WALL) ds_list_add(wall_list,"Up");
+                    if(grid[# i,j+1] == WALL) ds_list_add(wall_list,"Down");
+                    
+                    //Randomize List
+                    ds_list_shuffle(wall_list);
+                    
+                    var vase_amount,start_x,start_y,dir;
+                    
+                    //Set Variables based on where the wall is
+                    switch(wall_list[| 0])
+                    {
+                        case "Left":
+                        vase_amount = irandom_range(1,2);
+                        start_x = i*CELL_WIDTH;
+                        start_y = j*CELL_HEIGHT;
+                        dir = "Down";
+                        break;
+                        case "Right":
+                        vase_amount = irandom_range(1,2);
+                        start_x = (i*CELL_WIDTH)+CELL_WIDTH-sprite_get_width(spr_vase);
+                        start_y = j*CELL_HEIGHT;
+                        dir = "Down";
+                        break;
+                        case "Up":
+                        vase_amount = irandom_range(1,4);
+                        start_x = i*CELL_WIDTH;
+                        start_y = j*CELL_HEIGHT;
+                        dir = "Right";
+                        break;
+                        case "Down":
+                        vase_amount = irandom_range(1,4);
+                        start_x = i*CELL_WIDTH;
+                        start_y = (j*CELL_HEIGHT)+CELL_HEIGHT-sprite_get_height(spr_vase);
+                        dir = "Right";
+                        break;
+                    }
+                    
+                    //Spawn Vases Near Walls
+                    for(var k=0;k&lt;vase_amount;k++)
+                    {
+                         if(dir == "Down") down=k; else down=0;
+                         if(dir == "Right") right=k; else right=0;
+                         
+                         instance_create(start_x+(right*sprite_get_width(spr_vase)),start_y+(down*sprite_get_height(spr_vase)),obj_vase); 
+                    }
+                    //Cleanup
+                    ds_list_destroy(wall_list);
+                }
             }
         }
     }

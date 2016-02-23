@@ -261,7 +261,6 @@
       <script>scripts\scr_gain_gold.gml</script>
       <script>scripts\scr_spawn_hitbox.gml</script>
       <script>scripts\scr_refresh_cd.gml</script>
-      <script>scripts\scr_gen.gml</script>
       <script>scripts\draw_sprite_skew_ext.gml</script>
     </scripts>
     <scripts name="Trash">
@@ -316,6 +315,10 @@
     <script>scripts\approach.gml</script>
     <script>scripts\scr_spawn_pieces.gml</script>
     <script>scripts\multi_chance.gml</script>
+    <scripts name="Generation">
+      <script>scripts\scr_gen.gml</script>
+      <script>scripts\scr_nearby_value.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_peralta</font>
