@@ -115,31 +115,36 @@ mouse_inside_shop = (mouse_x &gt; shop_start_x &amp;&amp; mouse_x &lt; shop_star
           <argument>
             <kind>1</kind>
             <string>///Clicking on Items
-if(mouse_inside_shop)
+if(instance_exists(obj_stash))
 {
-    //if mouse_position in grid is not empty
-    var mouse_grid_x = (mouse_x-shop_start_x) div 62;
-    var mouse_grid_y = (mouse_y-shop_start_y) div 62;
-    if(shop_grid[# mouse_grid_x,mouse_grid_y] != EMPTY)
+    if(mouse_inside_shop &amp;&amp; obj_stash.mouse_item == EMPTY)
     {
-        if(mouse_check_button_released(mb_right))
+        //if mouse_position in grid is not empty
+        var mouse_grid_x = (mouse_x-shop_start_x) div 62;
+        var mouse_grid_y = (mouse_y-shop_start_y) div 62;
+        if(shop_grid[# mouse_grid_x,mouse_grid_y] != EMPTY)
         {
-            var cost = ds_map_find_value(shop_grid[# mouse_grid_x,mouse_grid_y],"cost");
-            if(identified[mouse_grid_x,mouse_grid_y] == false &amp;&amp; global.gold &gt;= cost)
+            if(mouse_check_button_released(mb_right))
             {
-                identified[mouse_grid_x,mouse_grid_y] = true;
-                global.gold-=cost;
-            }
-            else
-            {
-                var xx = scr_first_free_slot_x(obj_controller.stash_grid);
-                var yy = scr_first_free_slot_y(obj_controller.stash_grid);
-                obj_controller.stash_grid[# xx,yy] = shop_grid[# mouse_grid_x,mouse_grid_y];
-                shop_grid[# mouse_grid_x,mouse_grid_y] = EMPTY;
+                var cost = ds_map_find_value(shop_grid[# mouse_grid_x,mouse_grid_y],"cost");
+                if(identified[mouse_grid_x,mouse_grid_y] == false &amp;&amp; global.gold &gt;= cost)
+                {
+                    identified[mouse_grid_x,mouse_grid_y] = true;
+                    global.gold-=cost;
+                }
+                else
+                {
+                    var xx = scr_first_free_slot_x(obj_controller.stash_grid);
+                    var yy = scr_first_free_slot_y(obj_controller.stash_grid);
+                    obj_controller.stash_grid[# xx,yy] = shop_grid[# mouse_grid_x,mouse_grid_y];
+                    shop_grid[# mouse_grid_x,mouse_grid_y] = EMPTY;
+                }
             }
         }
     }
 }
+
+
 </string>
           </argument>
         </arguments>

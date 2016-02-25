@@ -38,53 +38,6 @@ mouse_in_stash = false;
           </argument>
         </arguments>
       </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Set States
-with(obj_player_parent) state_switch("Cutscene");
-with(obj_camera) state_switch("Fixed Player");
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>with(obj_player_parent) state_switch_previous();
-with(obj_camera) state_switch("Loose Player");
-</string>
-          </argument>
-        </arguments>
-      </action>
     </event>
     <event eventtype="3" enumb="0">
       <action>
@@ -234,38 +187,40 @@ for(var i = 0; i &lt; 5;i++)
 //draw_mouse_item
 if(mouse_item != EMPTY)
 {
+    var spr_w = sprite_get_width(spr_red_item)/2;
+    var spr_h = sprite_get_height(spr_red_item)/2;
     switch(ds_map_find_value(mouse_item,"type"))
     {
         case "red":
-        draw_sprite(spr_red_item,-1,mouse_x,mouse_y)
+        draw_sprite(spr_red_item,-1,mouse_x-spr_w,mouse_y-spr_h)
         break;
         case "yellow":
-        draw_sprite(spr_yellow_item,-1,mouse_x,mouse_y)
+        draw_sprite(spr_yellow_item,-1,mouse_x-spr_w,mouse_y-spr_h)
         break;
         case "blue":
-        draw_sprite(spr_blue_item,-1,mouse_x,mouse_y)
+        draw_sprite(spr_blue_item,-1,mouse_x-spr_w,mouse_y-spr_h)
         break;
         case "green":
-        draw_sprite(spr_green_item,-1,mouse_x,mouse_y)
+        draw_sprite(spr_green_item,-1,mouse_x-spr_w,mouse_y-spr_h)
         break;
         case "purple":
-        draw_sprite(spr_purple_item,-1,mouse_x,mouse_y)
+        draw_sprite(spr_purple_item,-1,mouse_x-spr_w,mouse_y-spr_h)
         break;
     }
     //Border Sprite
     switch(ds_map_find_value(mouse_item,"rarity"))
     {
         case 1 :
-        draw_sprite(spr_white_border,-1,mouse_x,mouse_y)
+        draw_sprite(spr_white_border,-1,mouse_x-spr_w,mouse_y-spr_h)
         break;
         case 2:
-        draw_sprite(spr_blue_border,-1,mouse_x,mouse_y)
+        draw_sprite(spr_blue_border,-1,mouse_x-spr_w,mouse_y-spr_h)
         break;
         case 3:
-        draw_sprite(spr_yellow_border,-1,mouse_x,mouse_y)
+        draw_sprite(spr_yellow_border,-1,mouse_x-spr_w,mouse_y-spr_h)
         break;
         case 4:
-        draw_sprite(spr_legendary_border,-1,mouse_x,mouse_y)
+        draw_sprite(spr_legendary_border,-1,mouse_x-spr_w,mouse_y-spr_h)
         break;
     }
 }

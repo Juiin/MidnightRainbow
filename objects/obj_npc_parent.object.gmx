@@ -84,6 +84,11 @@ if(instance_exists(obj_player_parent))
 
 if(show_window &amp;&amp; keyboard_check_pressed(vk_escape))
 {
+    if(instance_exists(obj_stash))
+    {
+        if(obj_stash.mouse_item != EMPTY) exit;
+    }
+    
     show_window = false;
     if(instance_exists(obj_player_parent)) with(obj_player_parent) state_switch_previous();
     if(instance_exists(obj_camera)) with(obj_camera) state_switch("Loose Player");
