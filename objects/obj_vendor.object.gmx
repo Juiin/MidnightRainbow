@@ -240,7 +240,10 @@ ds_grid_destroy(shop_grid);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
+            <string>
+draw_self();
+
+
 var blend;
 if(talkable) blend = c_yellow else blend = c_white;
 scr_text_outlined_scaled(x,y-16,"VENDOR",blend,c_black,1,1);

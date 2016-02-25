@@ -238,6 +238,9 @@
       <script>scripts\scr_part_fireball_2_init.gml</script>
     </scripts>
     <scripts name="Utility">
+      <script>scripts\approach.gml</script>
+      <script>scripts\scr_spawn_pieces.gml</script>
+      <script>scripts\multi_chance.gml</script>
       <script>scripts\scr_range_convert.gml</script>
       <script>scripts\scr_collision_line_ext.gml</script>
       <script>scripts\draw_path_all.gml</script>
@@ -312,13 +315,13 @@
         <script>scripts\st_ov_scout.gml</script>
       </scripts>
     </scripts>
-    <script>scripts\approach.gml</script>
-    <script>scripts\scr_spawn_pieces.gml</script>
-    <script>scripts\multi_chance.gml</script>
     <scripts name="Generation">
       <script>scripts\scr_gen.gml</script>
       <script>scripts\scr_nearby_value.gml</script>
     </scripts>
+    <script>scripts\scr_pos_inside.gml</script>
+    <script>scripts\scr_wave.gml</script>
+    <script>scripts\scr_is_any.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_peralta</font>
