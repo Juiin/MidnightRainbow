@@ -16,7 +16,7 @@ for(var i = 0;i<rarity;i++)
         var stat_type = ds_map_find_value(grid[# grid_x,grid_y],"Stat_"+string(i)+"_type");
         var stat_tier = ds_map_find_value(grid[# grid_x,grid_y],"Stat_"+string(i)+"_tier");
         
-        str = string_insert(scr_get_stat_string(stat_type,stat_value,stat_tier,rarity),str,string_length(str)+1);
+        str = string_insert(scr_get_stat_string(stat_type,stat_value,stat_tier,rarity,true),str,string_length(str)+1);
         
         gear_score += scr_gear_score_stat(stat_type,stat_value);
 }

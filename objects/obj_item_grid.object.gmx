@@ -215,7 +215,7 @@ if(instance_exists(obj_stash))
             <kind>1</kind>
             <string>draw_self();
 
-//draw borders
+//draw borders(grid_borders based on color alignments) not borders of the items
 for(var i=0;i&lt;5;i++)
 {
     for(var j=0;j&lt;5;j++)

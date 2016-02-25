@@ -506,6 +506,8 @@ draw_set_font(fnt_peralta_1_5);
 if(global.debug)
 {
     draw_text(view_xview[0]+160,view_yview[0]+10,"FPS:"+string(fps));
+    draw_text(view_xview[0]+160,view_yview[0]+30,"MouseX:"+string(mouse_x-view_xview[0]));
+    draw_text(view_xview[0]+160,view_yview[0]+50,"MouseY:"+string(mouse_y-view_yview[0]));
 }
 
 

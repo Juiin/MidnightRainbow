@@ -26,7 +26,7 @@ with(obj_camera)
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>
     <isSet>-1</isSet>
-    <w>968</w>
+    <w>1008</w>
     <h>600</h>
     <showGrid>-1</showGrid>
     <showObjects>-1</showObjects>
@@ -37,8 +37,8 @@ with(obj_camera)
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
     <page>0</page>
-    <xoffset>42</xoffset>
-    <yoffset>90</yoffset>
+    <xoffset>21</xoffset>
+    <yoffset>-18</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -73,6 +73,7 @@ with(obj_camera)
     <instance objName="obj_vase" x="200" y="488" name="inst_62929D19" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_vase" x="240" y="488" name="inst_CC7DC619" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_vase" x="280" y="488" name="inst_12E7BC69" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_craft_npc" x="640" y="440" name="inst_0D4B5F00" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

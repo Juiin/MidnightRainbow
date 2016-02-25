@@ -104,6 +104,7 @@
       <sprite>sprites\spr_ov_warp</sprite>
       <sprite>sprites\spr_ov_moveable</sprite>
     </sprites>
+    <sprite>sprites\spr_crafting</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_floor</background>
@@ -381,7 +382,6 @@
       <object>objects\obj_red_flash</object>
     </objects>
     <objects name="HUD">
-      <object>objects\obj_class_tree</object>
       <object>objects\obj_stat_sheet</object>
       <object>objects\obj_hud</object>
     </objects>
@@ -390,11 +390,14 @@
       <object>objects\obj_npc_parent</object>
       <object>objects\obj_dummy</object>
       <object>objects\obj_vendor</object>
-      <object>objects\obj_stash</object>
       <object>objects\obj_stash_npc</object>
       <object>objects\obj_class_npc</object>
-      <object>objects\obj_item_grid</object>
       <object>objects\obj_item_slot_npc</object>
+      <object>objects\obj_stash</object>
+      <object>objects\obj_item_grid</object>
+      <object>objects\obj_class_tree</object>
+      <object>objects\obj_craft_npc</object>
+      <object>objects\obj_crafting</object>
     </objects>
     <object>objects\obj_warp</object>
     <objects name="Pickup">
