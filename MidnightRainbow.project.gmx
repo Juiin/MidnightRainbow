@@ -290,8 +290,8 @@
       <script>scripts\scr_create_item.gml</script>
       <script>scripts\scr_get_stat_id.gml</script>
       <script>scripts\scr_int_to_roman.gml</script>
-      <script>scripts\scr_first_free_slot_x.gml</script>
       <script>scripts\scr_first_free_slot_y.gml</script>
+      <script>scripts\scr_first_free_slot_x.gml</script>
       <script>scripts\scr_compare.gml</script>
       <script>scripts\scr_calc_borders.gml</script>
       <script>scripts\scr_return_string_from_grid.gml</script>
@@ -303,6 +303,9 @@
       <script>scripts\scr_get_stat_string.gml</script>
       <script>scripts\scr_gear_score_stat.gml</script>
       <script>scripts\scr_get_roll.gml</script>
+      <script>scripts\scr_reroll_stat.gml</script>
+      <script>scripts\scr_stat_pool_list.gml</script>
+      <script>scripts\scr_increase_stat_tier.gml</script>
     </scripts>
     <scripts name="Overworld">
       <script>scripts\scr_populate_ov_grid.gml</script>
