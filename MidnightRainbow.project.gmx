@@ -303,9 +303,13 @@
       <script>scripts\scr_get_stat_string.gml</script>
       <script>scripts\scr_gear_score_stat.gml</script>
       <script>scripts\scr_get_roll.gml</script>
-      <script>scripts\scr_reroll_stat.gml</script>
       <script>scripts\scr_stat_pool_list.gml</script>
-      <script>scripts\scr_increase_stat_tier.gml</script>
+      <scripts name="Crafting">
+        <script>scripts\scr_add_stat.gml</script>
+        <script>scripts\scr_reroll_stat_values.gml</script>
+        <script>scripts\scr_increase_stat_tier.gml</script>
+        <script>scripts\scr_reroll_stat.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Overworld">
       <script>scripts\scr_populate_ov_grid.gml</script>

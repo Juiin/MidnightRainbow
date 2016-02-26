@@ -246,7 +246,7 @@ if(craft_item != EMPTY)
           <argument>
             <kind>1</kind>
             <string>///DEBUG REMOVE
-scr_increase_stat_tier(craft_item,1);
+scr_add_stat(craft_item);
 </string>
           </argument>
         </arguments>
