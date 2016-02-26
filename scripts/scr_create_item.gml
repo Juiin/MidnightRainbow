@@ -11,6 +11,12 @@ ds_map_add(map,"rarity",rarity);
 ds_map_add(map,"max_tier",max_tier);
 ds_map_add(map,"cost",obj_controller.item_cost[rarity,max_tier]);
 
+//Crafting Costs
+ds_map_add(map,"reroll_cost",100);
+ds_map_add(map,"augment_cost",200);
+ds_map_add(map,"revalue_cost",50);
+ds_map_add(map,"rarity_cost",300);
+
 var sig_stat;
 switch(type)
 {

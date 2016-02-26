@@ -29,8 +29,22 @@
 
 
 //Mouse Variables
+stats_start_x = 0;
+stats_start_y = 0;
+options_start_x = 0;
+options_start_y = 0;
 mouse_in_craft_slot = false;
 
+
+//Blends
+reroll_blend = c_gray;
+augment_blend = c_gray;
+revalue_blend = c_gray;
+rarity_blend = c_gray;
+
+
+reroll_active = false;
+augment_active = false;
 </string>
           </argument>
         </arguments>
@@ -81,7 +95,8 @@ y = view_yview[view_current]+(view_hview[view_current]/2);
 stats_start_x = view_xview[view_current]+367;
 stats_start_y = view_yview[view_current]+194;
 
-
+options_start_x = view_xview[view_current]+109;
+options_start_y = view_yview[view_current]+194;
 mouse_in_craft_slot = scr_pos_inside(mouse_x,mouse_y,view_xview[view_current]+538,view_yview[view_current]+97,view_xview[view_current]+622,view_yview[view_current]+181);
 </string>
           </argument>
@@ -104,7 +119,7 @@ mouse_in_craft_slot = scr_pos_inside(mouse_x,mouse_y,view_xview[view_current]+53
           <argument>
             <kind>1</kind>
             <string>///Item Movement
-if(instance_exists(obj_stash))
+if(instance_exists(obj_stash) &amp;&amp; !reroll_active &amp;&amp; !augment_active)
 {
     if(mouse_in_craft_slot)
     {
@@ -137,6 +152,173 @@ if(instance_exists(obj_stash))
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Crafting
+
+if(craft_item != EMPTY &amp;&amp; !reroll_active &amp;&amp; !augment_active)
+{
+    var item_rarity = craft_item[? "rarity"];
+    //Reroll
+    var reroll_cost = craft_item[? "reroll_cost"];
+    if(global.gold &gt;= reroll_cost &amp;&amp; item_rarity &gt; 1)
+    {
+        reroll_blend = c_white;
+        
+        if(scr_pos_inside(mouse_x,mouse_y,options_start_x,options_start_y,options_start_x+247,options_start_y+64))
+        {
+            if(mouse_check_button_pressed(mb_left))
+            {
+                global.gold-=reroll_cost;
+                reroll_active = true;
+                craft_item[? "reroll_cost"]+=100;
+            }
+        }
+    }  
+    else reroll_blend = c_gray
+    //Augment
+    var augment_cost = craft_item[? "augment_cost"];
+    var any_stats_less_4 = false;
+    for(var i=0;i&lt;craft_item[? "rarity"];i++)
+    {
+        if(craft_item[? "Stat_"+string(i)+"_tier"] &lt; 4)
+        {
+            any_stats_less_4 = true;
+            break;
+        }
+    }
+    
+    if(global.gold &gt;= augment_cost &amp;&amp; any_stats_less_4)
+    {
+        augment_blend = c_white;
+        if(scr_pos_inside(mouse_x,mouse_y,options_start_x,options_start_y+64,options_start_x+247,options_start_y+64+64))
+        {
+            if(mouse_check_button_pressed(mb_left))
+            {
+                global.gold-=augment_cost;
+                augment_active = true;
+                craft_item[? "augment_cost"]+=200;
+            }
+        }
+    }
+    else augment_blend = c_gray;
+    //Revalue
+    var revalue_cost = craft_item[? "revalue_cost"];
+    if(global.gold &gt;= revalue_cost)
+    {
+        revalue_blend = c_white;
+        if(scr_pos_inside(mouse_x,mouse_y,options_start_x,options_start_y+64+64,options_start_x+247,options_start_y+64+64+64))
+        {
+            if(mouse_check_button_pressed(mb_left))
+            {
+                global.gold-=revalue_cost;
+                scr_reroll_stat_values(craft_item);
+                craft_item[? "revalue_cost"]+=50;
+            }
+        }
+    }
+    else revalue_blend = c_gray;
+    
+    //Increase Rarity
+    var rarity_cost = craft_item[? "rarity_cost"];
+    
+    if(global.gold &gt;= rarity_cost &amp;&amp; item_rarity &lt; 4)
+    {
+        rarity_blend = c_white;
+        if(scr_pos_inside(mouse_x,mouse_y,options_start_x,options_start_y+64+64+64,options_start_x+247,options_start_y+64+64+64+64))
+        {
+            if(mouse_check_button_pressed(mb_left))
+            {
+                global.gold-=rarity_cost;
+                scr_add_stat(craft_item);
+                if(craft_item[? "rarity"] &gt;= 4) rarity_blend = c_gray;
+                craft_item[? "rarity_cost"]+=300;
+            }
+        }
+    }
+    else rarity_blend = c_gray;
+}
+
+//Actual Rerolling/Augmenting
+if(reroll_active)
+{
+    if(mouse_check_button_pressed(mb_left))
+    {
+        for(var i=1;i&lt;craft_item[? "rarity"];i++)
+        {
+            if(scr_pos_inside(mouse_x,mouse_y,stats_start_x,stats_start_y+(i*106),stats_start_x+444,stats_start_y+106+(i*106)))
+            {
+                scr_reroll_stat(craft_item,i)
+                reroll_active = false;
+            }
+        }
+    }
+}
+else if(augment_active)
+{
+    if(mouse_check_button_pressed(mb_left))
+    {
+        for(var i=0;i&lt;craft_item[? "rarity"];i++)
+        {
+            if(craft_item[? "Stat_"+string(i)+"_tier"] &lt; 4)
+            {
+                if(scr_pos_inside(mouse_x,mouse_y,stats_start_x,stats_start_y+(i*106),stats_start_x+444,stats_start_y+106+(i*106)))
+                {
+                    scr_increase_stat_tier(craft_item,i)
+                    augment_active = false;
+                }
+            }
+        }
+    }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Blend
+if(craft_item == EMPTY || reroll_active || augment_active)
+{
+    reroll_blend = c_gray;
+    augment_blend = c_gray;
+    revalue_blend = c_gray;
+    rarity_blend = c_gray;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="0">
       <action>
@@ -158,7 +340,7 @@ if(instance_exists(obj_stash))
             <string>draw_self();
 ///Draw Item + Stats
 
-
+draw_set_halign(fa_left);
 if(craft_item != EMPTY)
 {
     //Draw Item
@@ -200,7 +382,7 @@ if(craft_item != EMPTY)
         break;
     }
 
-    draw_set_halign(fa_left);
+    
     //Draw Stats
     for(var i=0;i&lt;ds_map_find_value(craft_item,"rarity");i++)
     {
@@ -215,12 +397,31 @@ if(craft_item != EMPTY)
            var high = high_roll[stat_tier,scr_get_stat_id(stat_type)];
            str = string_insert("#("+string(low)+"-"+string(high)+")",str,string_length(str)-1);
            
-           scr_text_outlined_scaled(stats_start_x,stats_start_y+(i*106),str,c_white,c_black,1,1);
+           var blend = c_white;
+           if(reroll_active &amp;&amp; i!=0) blend = c_yellow;
+           if(augment_active &amp;&amp; stat_tier &lt; 4) blend = c_yellow;
+           
+           scr_text_outlined_scaled(stats_start_x,stats_start_y+(i*106),str,blend,c_black,1,1);
            
     }
-    draw_set_halign(fa_center);
+    
+    //Draw Crafting Costs
+    var reroll_cost = craft_item[? "reroll_cost"];
+    var augment_cost = craft_item[? "augment_cost"];
+    var revalue_cost = craft_item[? "revalue_cost"];
+    var rarity_cost = craft_item[? "rarity_cost"];
+    scr_text_outlined_scaled(options_start_x,options_start_y+24,"Cost: "+string(reroll_cost),reroll_blend,c_black,1,1);
+    scr_text_outlined_scaled(options_start_x,options_start_y+24+64,"Cost: "+string(augment_cost),augment_blend,c_black,1,1);
+    scr_text_outlined_scaled(options_start_x,options_start_y+24+64+64,"Cost: "+string(revalue_cost),revalue_blend,c_black,1,1);
+    scr_text_outlined_scaled(options_start_x,options_start_y+24+64+64+64,"Cost: "+string(rarity_cost),rarity_blend,c_black,1,1);
 }
 
+//Draw Options
+scr_text_outlined_scaled(options_start_x,options_start_y,"Reroll Stat",reroll_blend,c_black,1,1);
+scr_text_outlined_scaled(options_start_x,options_start_y+64,"Augment Stat",augment_blend,c_black,1,1);
+scr_text_outlined_scaled(options_start_x,options_start_y+64+64,"Reroll Values",revalue_blend,c_black,1,1);
+scr_text_outlined_scaled(options_start_x,options_start_y+64+64+64,"Increase Rarity",rarity_blend,c_black,1,1);
+draw_set_halign(fa_center);
 
 
 </string>

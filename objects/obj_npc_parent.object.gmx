@@ -88,6 +88,11 @@ if(show_window &amp;&amp; keyboard_check_pressed(vk_escape))
     {
         if(obj_stash.mouse_item != EMPTY) exit;
     }
+    if(instance_exists(obj_crafting))
+    {
+        if(obj_crafting.craft_item != EMPTY || obj_crafting.reroll_active || obj_crafting.augment_active) exit;
+    }
+    
     
     show_window = false;
     if(instance_exists(obj_player_parent)) with(obj_player_parent) state_switch_previous();
