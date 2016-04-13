@@ -610,8 +610,11 @@ else instance_create(0,0,obj_lighting);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Change Room Speed
-room_speed = get_integer("hi",60);
+            <string>///Spawn Blue bar
+var i = instance_create(0,0,obj_blue_text);
+i.text = "LEVEL UP!";
+i.x_spd = 60;
+i.screen_shake = 2;
 </string>
           </argument>
         </arguments>

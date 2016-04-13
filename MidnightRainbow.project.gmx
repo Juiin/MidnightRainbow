@@ -7,6 +7,7 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\snd_gold_pickup</sound>
+    <sound>sound\snd_lvlup</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_player</sprite>
@@ -105,9 +106,10 @@
       <sprite>sprites\spr_ov_moveable</sprite>
     </sprites>
     <sprite>sprites\spr_crafting</sprite>
+    <sprite>sprites\spr_bluebar</sprite>
   </sprites>
   <backgrounds name="background">
-    <background>background\bg_floor</background>
+    <background>background\bg_floor4</background>
     <background>background\bg_floor2</background>
     <background>background\bg_void</background>
     <background>background\bg_wall</background>
@@ -117,6 +119,7 @@
     <background>background\bg_ov_green</background>
     <background>background\bg_ov_yellow</background>
     <background>background\bg_ov_red</background>
+    <background>background\bg_floor</background>
     <background>background\bg_ov_purple</background>
   </backgrounds>
   <paths name="paths"/>
@@ -334,6 +337,7 @@
   <fonts name="fonts">
     <font>fonts\fnt_peralta</font>
     <font>fonts\fnt_peralta_1_5</font>
+    <font>fonts\fnt_peralta_3_0</font>
     <font>fonts\fnt_peralta_0_75</font>
   </fonts>
   <objects name="objects">
@@ -391,6 +395,7 @@
     <objects name="HUD">
       <object>objects\obj_stat_sheet</object>
       <object>objects\obj_hud</object>
+      <object>objects\obj_blue_text</object>
     </objects>
     <object>objects\obj_vase</object>
     <objects name="Town">

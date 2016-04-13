@@ -381,6 +381,12 @@ if(current_exp &gt;= req_exp[current_level-1] &amp;&amp; current_level &lt; max_
 {
     current_exp -= req_exp[current_level-1];
     current_level++;
+    
+    //Spawn Levelup Animation
+    var inst = instance_create(0,0,obj_blue_text);
+    inst.text = "Level UP!"
+    inst.x_spd = 60;
+    inst.screen_shake = 4;
 }
 
 draw_exp = scr_range_convert(0,req_exp[current_level-1],0,100,current_exp);

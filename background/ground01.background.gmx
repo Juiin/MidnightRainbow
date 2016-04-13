@@ -15,5 +15,5 @@
   <For3D>0</For3D>
   <width>128</width>
   <height>128</height>
-  <data>images\bg_floor.png</data>
+  <data>images\ground01.png</data>
 </background>

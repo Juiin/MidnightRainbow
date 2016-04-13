@@ -1,7 +1,7 @@
 if(x_spd != 0 || y_spd != 0)
 {
     mov_dir = point_direction(0,0,x_spd,y_spd);
-    movement_and_collision(mov_dir, total_move_speed, obj_solid, false);
+    movement_and_collision(mov_dir, total_move_speed, obj_solid, true);
 }
 /*
 else if(left_check)
