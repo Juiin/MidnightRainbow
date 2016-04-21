@@ -107,6 +107,7 @@
     </sprites>
     <sprite>sprites\spr_crafting</sprite>
     <sprite>sprites\spr_bluebar</sprite>
+    <sprite>sprites\spr_chrissi</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_floor4</background>
