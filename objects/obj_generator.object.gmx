@@ -248,6 +248,7 @@ for(var i=0;i&lt;grid_width;i++)
         else if(grid[# i,j] == VOID)
         {
             tile_add(scr_gen(global.area,"void_tile_01"),0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);   
+            instance_create(i*CELL_WIDTH,j*CELL_HEIGHT,obj_wall);
         }
         else if (grid[# i,j] == EXIT)
         {
