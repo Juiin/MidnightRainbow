@@ -7,7 +7,9 @@ for(var i=xx-radius;i<=xx+radius;i++)
 {
     for(var j=yy-radius;j<=yy+radius;j++)
     {
-        ds_map_replace(ov_grid[# i,j],"revealed",true);
+        var ii = clamp(i,0,ds_grid_width(ov_grid)-1);
+        var jj = clamp(j,0,ds_grid_height(ov_grid)-1);
+        ds_map_replace(ov_grid[# ii,jj],"revealed",true);
     }   
 }
 
