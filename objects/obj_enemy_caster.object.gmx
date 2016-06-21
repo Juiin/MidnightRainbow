@@ -59,7 +59,7 @@ retreat_radius = 135;
             <string>///Stats
 
 //Base Values
-base_damage = 20;
+base_damage = 2;
 base_defense = 0;
 base_move_speed = 1;
 base_health = 250;

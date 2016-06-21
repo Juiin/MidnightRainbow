@@ -393,13 +393,13 @@
       <object>objects\obj_grass</object>
       <object>objects\obj_torch</object>
       <object>objects\obj_red_flash</object>
+      <object>objects\obj_vase</object>
     </objects>
     <objects name="HUD">
       <object>objects\obj_stat_sheet</object>
       <object>objects\obj_hud</object>
       <object>objects\obj_blue_text</object>
     </objects>
-    <object>objects\obj_vase</object>
     <objects name="Town">
       <object>objects\obj_npc_parent</object>
       <object>objects\obj_dummy</object>
