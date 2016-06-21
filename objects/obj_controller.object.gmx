@@ -419,7 +419,7 @@ room_goto_next();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Play Loop Song
+            <string>///Play Loop Song
 audio_play_sound(snd_loop_song,0,1);
 </string>
           </argument>
