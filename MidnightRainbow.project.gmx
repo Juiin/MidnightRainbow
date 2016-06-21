@@ -9,6 +9,7 @@
     <sound>sound\snd_gold_pickup</sound>
     <sound>sound\snd_lvlup</sound>
     <sound>sound\snd_vase_break</sound>
+    <sound>sound\snd_loop_song</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_player</sprite>

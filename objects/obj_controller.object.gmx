@@ -420,7 +420,6 @@ room_goto_next();
           <argument>
             <kind>1</kind>
             <string>//Play Loop Song
-event_inherited();
 audio_play_sound(snd_loop_song,0,1);
 </string>
           </argument>
