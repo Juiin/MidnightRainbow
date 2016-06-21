@@ -109,6 +109,7 @@
     </sprites>
     <sprite>sprites\spr_crafting</sprite>
     <sprite>sprites\spr_bluebar</sprite>
+    <sprite>sprites\spr_stone</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_floor4</background>
@@ -394,6 +395,7 @@
       <object>objects\obj_torch</object>
       <object>objects\obj_red_flash</object>
       <object>objects\obj_vase</object>
+      <object>objects\obj_stone</object>
     </objects>
     <objects name="HUD">
       <object>objects\obj_stat_sheet</object>
