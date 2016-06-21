@@ -27,6 +27,7 @@ switch(area)
             case "wall_tile_02": return bg_wall_down; break;
             case "void_tile_01": return bg_void; break;
             case "exit_tile_01": return bg_exit; break;
+            case "vase_blend": return c_red; break;
             //Enemies
             //Deco
          }
