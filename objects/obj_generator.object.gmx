@@ -397,10 +397,14 @@ for(var i=0;i&lt;grid_width;i++)
     {
         if(grid[# i ,j] == FLOOR)
         {
-            if(scr_chance(0.1))
+            if(scr_chance(0.7))
             {
                 var inst = instance_create(i*CELL_WIDTH,j*CELL_HEIGHT,obj_stone);
                 inst.image_blend = scr_gen(global.area,"rock_color");
+                
+                inst.x = irandom_range(inst.x,inst.x+CELL_WIDTH-(sprite_get_width(inst.sprite_index)*inst.image_xscale));
+                inst.y = irandom_range(inst.y,inst.y+CELL_HEIGHT-(sprite_get_height(inst.sprite_index)*inst.image_yscale));    
+                
             }
         }    
     }
