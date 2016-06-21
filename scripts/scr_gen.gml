@@ -30,6 +30,7 @@ switch(area)
             case "vase_blend": return c_red; break;
             //Enemies
             //Deco
+            case "rock_color": return c_red; break;
          }
     break;
 }

@@ -399,7 +399,8 @@ for(var i=0;i&lt;grid_width;i++)
         {
             if(scr_chance(0.1))
             {
-               instance_create(i*CELL_WIDTH,j*CELL_HEIGHT,obj_stone);
+                var inst = instance_create(i*CELL_WIDTH,j*CELL_HEIGHT,obj_stone);
+                inst.image_blend = scr_gen(global.area,"rock_color");
             }
         }    
     }
@@ -464,7 +465,7 @@ for(var i=0;i&lt;grid_width;i++)
                          if(dir == "Down") down=k; else down=0;
                          if(dir == "Right") right=k; else right=0;
                          
-                         inst = instance_create(start_x+(right*sprite_get_width(spr_vase)),start_y+(down*sprite_get_height(spr_vase)),obj_vase); 
+                         var inst = instance_create(start_x+(right*sprite_get_width(spr_vase)),start_y+(down*sprite_get_height(spr_vase)),obj_vase); 
                          inst.image_blend = scr_gen(global.area,"vase_blend");
                     }
                     //Cleanup
