@@ -125,6 +125,8 @@
     <background>background\bg_ov_red</background>
     <background>background\bg_floor</background>
     <background>background\bg_ov_purple</background>
+    <background>background\bg_top_border</background>
+    <background>background\bg_left_border</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">

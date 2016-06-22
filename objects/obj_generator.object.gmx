@@ -247,12 +247,17 @@ for(var i=0;i&lt;grid_width;i++)
             {
                 tile_add(scr_gen(global.area,"wall_tile_01"),0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
                 if(grid[#i+1,j] == FLOOR) tile_add(bg_right_border,0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
+                if(grid[#i,j-1] == FLOOR) tile_add(bg_top_border,0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
+                if(grid[#i-1,j] == FLOOR) tile_add(bg_left_border,0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
             }
             instance_create(i*CELL_WIDTH,j*CELL_HEIGHT,obj_wall);
         }
         else if(grid[# i,j] == VOID)
         {
-            tile_add(scr_gen(global.area,"void_tile_01"),0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);   
+            tile_add(scr_gen(global.area,"void_tile_01"),0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);  
+            if(grid[#i+1,j] == FLOOR) tile_add(bg_right_border,0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
+            if(grid[#i,j-1] == FLOOR) tile_add(bg_top_border,0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
+            if(grid[#i-1,j] == FLOOR) tile_add(bg_left_border,0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0); 
             instance_create(i*CELL_WIDTH,j*CELL_HEIGHT,obj_wall);
         }
         else if (grid[# i,j] == EXIT)
