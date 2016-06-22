@@ -116,6 +116,7 @@
     <background>background\bg_floor2</background>
     <background>background\bg_void</background>
     <background>background\bg_wall</background>
+    <background>background\bg_right_border</background>
     <background>background\bg_wall_down</background>
     <background>background\bg_exit</background>
     <background>background\bg_ov_blue</background>
