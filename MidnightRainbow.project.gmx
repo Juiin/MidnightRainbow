@@ -119,14 +119,16 @@
     <background>background\bg_right_border</background>
     <background>background\bg_wall_down</background>
     <background>background\bg_exit</background>
-    <background>background\bg_ov_blue</background>
-    <background>background\bg_ov_green</background>
-    <background>background\bg_ov_yellow</background>
-    <background>background\bg_ov_red</background>
+    <background>background\bg_ow_blue</background>
+    <background>background\bg_ow_green</background>
+    <background>background\bg_ow_yellow</background>
+    <background>background\bg_ow_red</background>
     <background>background\bg_floor</background>
     <background>background\bg_ov_purple</background>
     <background>background\bg_top_border</background>
     <background>background\bg_left_border</background>
+    <background>background\bg_tl_corner</background>
+    <background>background\bg_tr_corner</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">

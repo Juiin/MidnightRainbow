@@ -27,6 +27,13 @@ switch(area)
             case "wall_tile_02": return bg_wall_down; break;
             case "void_tile_01": return bg_void; break;
             case "exit_tile_01": return bg_exit; break;
+            case "right_border_tile" : return bg_right_border; break;
+            case "left_border_tile" : return bg_left_border; break;
+            case "top_border_tile" : return bg_top_border; break;
+            case "tl_corner_tile" : return bg_tl_corner; break; 
+            case "tr_corner_tile" : return bg_tr_corner; break; 
+            case "bl_corner_tile" : return false; break; //
+            case "br_corner_tile" : return false; break; //
             case "vase_blend": return c_red; break;
             //Enemies
             //Deco

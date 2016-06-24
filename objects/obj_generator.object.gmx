@@ -192,6 +192,23 @@ do
 }
 until(floor_tiles &gt;= max_floor_tiles)
 
+//Clean up
+for(var i=1;i&lt;grid_width-1;i++)
+{
+    for(var j=1;j&lt;grid_height-1;j++)
+    {
+        if(grid[# i, j] == VOID)
+        {
+            /*if(grid[# i+1, j] == FLOOR &amp;&amp; grid[# i-1,j] == FLOOR &amp;&amp; grid[# i,j+1] == FLOOR &amp;&amp; grid[# i,j-1] == FLOOR)
+            {
+                grid[# i,j] = FLOOR;   
+            }*/        
+            if(grid[# i,j+1] == FLOOR &amp;&amp; grid[# i,j-1] == FLOOR) grid[# i,j] = FLOOR;
+        }
+    }
+}
+
+
 //Place Walls
 for(var i=1;i&lt;grid_width-1;i++)
 {
@@ -206,28 +223,11 @@ for(var i=1;i&lt;grid_width-1;i++)
         }
     }
 }
-//Clean up
-for(var i=0;i&lt;grid_width;i++)
-{
-    for(var j=0;j&lt;grid_height;j++)
-    {
-        if(grid[# i, j] == WALL)
-        {
-            if(grid[# i+1, j] == FLOOR &amp;&amp; grid[# i-1,j] == FLOOR &amp;&amp; grid[# i,j+1] == FLOOR &amp;&amp; grid[# i,j-1] == FLOOR)
-            {
-                grid[# i,j] = FLOOR;   
-            }        
-            if(grid[# i,j+1] == FLOOR &amp;&amp; grid[# i,j-1] == FLOOR) grid[# i,j] = FLOOR;
-        }
-    }
-}
-
 
 //Draw the Level
-toggle=true;
-for(var i=0;i&lt;grid_width;i++)
+for(var i=1;i&lt;grid_width-1;i++)
 {
-    for(var j=0;j&lt;grid_height;j++)
+    for(var j=1;j&lt;grid_height-1;j++)
     {
         if(grid[# i,j] == FLOOR)
         {
@@ -246,19 +246,33 @@ for(var i=0;i&lt;grid_width;i++)
             else
             {
                 tile_add(scr_gen(global.area,"wall_tile_01"),0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
-                if(grid[#i+1,j] == FLOOR) tile_add(bg_right_border,0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
-                if(grid[#i,j-1] == FLOOR) tile_add(bg_top_border,0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
-                if(grid[#i-1,j] == FLOOR) tile_add(bg_left_border,0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
+                if(grid[#i+1,j] == FLOOR) tile_add(scr_gen(global.area,"right_border_tile"),0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
+                if(grid[#i,j-1] == FLOOR) tile_add(scr_gen(global.area,"top_border_tile"),0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
+                if(grid[#i-1,j] == FLOOR) tile_add(scr_gen(global.area,"left_border_tile"),0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
+                
+                //corners
+                if(grid[#i+1,j+1] == FLOOR &amp;&amp; grid[#i+1,j] == WALL) tile_add(scr_gen(global.area,"right_border_tile"),0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
+                if(grid[#i-1,j+1] == FLOOR &amp;&amp; grid[#i-1,j] == WALL) tile_add(scr_gen(global.area,"left_border_tile"),0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
+                    
+                if(grid[#i+1,j-1] == FLOOR &amp;&amp; grid[#i+1,j] == WALL &amp;&amp; (grid[# i,j-1] == WALL || grid[# i,j-1] == VOID)) tile_add(scr_gen(global.area,"tr_corner_tile"),0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
+                if(grid[#i-1,j-1] == FLOOR &amp;&amp; grid[#i-1,j] == WALL &amp;&amp; (grid[# i,j-1] == WALL || grid[# i,j-1] == VOID)) tile_add(scr_gen(global.area,"tl_corner_tile"),0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
             }
             instance_create(i*CELL_WIDTH,j*CELL_HEIGHT,obj_wall);
         }
         else if(grid[# i,j] == VOID)
         {
             tile_add(scr_gen(global.area,"void_tile_01"),0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);  
-            if(grid[#i+1,j] == FLOOR) tile_add(bg_right_border,0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
-            if(grid[#i,j-1] == FLOOR) tile_add(bg_top_border,0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
-            if(grid[#i-1,j] == FLOOR) tile_add(bg_left_border,0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0); 
+            if(grid[#i+1,j] == FLOOR) tile_add(scr_gen(global.area,"right_border_tile"),0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
+            if(grid[#i,j-1] == FLOOR) tile_add(scr_gen(global.area,"top_border_tile"),0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
+            if(grid[#i-1,j] == FLOOR) tile_add(scr_gen(global.area,"left_border_tile"),0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0); 
             instance_create(i*CELL_WIDTH,j*CELL_HEIGHT,obj_wall);
+            
+            //corners
+            if(grid[#i+1,j+1] == FLOOR &amp;&amp; grid[#i+1,j] == WALL) tile_add(scr_gen(global.area,"right_border_tile"),0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
+            if(grid[#i-1,j+1] == FLOOR &amp;&amp; grid[#i-1,j] == WALL) tile_add(scr_gen(global.area,"left_border_tile"),0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
+            
+            if(grid[#i+1,j-1] == FLOOR &amp;&amp; grid[#i+1,j] == WALL &amp;&amp; (grid[# i,j-1] == WALL || grid[# i,j-1] == VOID)) tile_add(scr_gen(global.area,"tr_corner_tile"),0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
+            if(grid[#i-1,j-1] == FLOOR &amp;&amp; grid[#i-1,j] == WALL &amp;&amp; (grid[# i,j-1] == WALL || grid[# i,j-1] == VOID)) tile_add(scr_gen(global.area,"tl_corner_tile"),0,0,CELL_WIDTH,CELL_HEIGHT,i*CELL_WIDTH,j*CELL_HEIGHT,0);
         }
         else if (grid[# i,j] == EXIT)
         {
@@ -276,9 +290,9 @@ mp_grid_add_instances(mp_grid,obj_wall,true)
 path = path_add();
 path_set_kind(path,1);
 path_set_precision(path,8);
-for(var i=0;i&lt;grid_width;i++)
+for(var i=1;i&lt;grid_width-1;i++)
 {
-    for(var j=0;j&lt;grid_height;j++)
+    for(var j=1;j&lt;grid_height-1;j++)
     {
         if(grid[# i,j] == FLOOR)
         {
@@ -308,9 +322,9 @@ if(instance_exists(obj_player_parent))
 max_len = 0
 exit_x = 0
 exit_y = 0
-for(var i=0;i&lt;grid_width;i++)
+for(var i=1;i&lt;grid_width-1;i++)
 {
-    for(var j=0;j&lt;grid_height;j++)
+    for(var j=1;j&lt;grid_height-1;j++)
     {
         if(grid[# i,j] == FLOOR)
         {
@@ -337,9 +351,9 @@ var inst = instance_create(exit_x*CELL_WIDTH,exit_y*CELL_HEIGHT,obj_warp);
 inst.destination = rm_overworld;
 
 //Spawn Enemies
-for(var i=0;i&lt;grid_width;i++)
+for(var i=1;i&lt;grid_width-1;i++)
 {
-    for(var j=0;j&lt;grid_height;j++)
+    for(var j=1;j&lt;grid_height-1;j++)
     {
         if(grid[# i,j] == FLOOR)
         {
@@ -363,9 +377,9 @@ for(var i=0;i&lt;grid_width;i++)
 }
 //Spawn Deco
 //Torches
-for(var i=0;i&lt;grid_width;i++)
+for(var i=1;i&lt;grid_width-1;i++)
 {
-    for(var j=0;j&lt;grid_height;j++)
+    for(var j=1;j&lt;grid_height-1;j++)
     {
         if(grid[# i ,j] == WALL)
         {
@@ -378,9 +392,9 @@ for(var i=0;i&lt;grid_width;i++)
 }
 //Grass
 /*
-for(var i=0;i&lt;grid_width;i++)
+for(var i=1;i&lt;grid_width-1;i++)
 {
-    for(var j=0;j&lt;grid_height;j++)
+    for(var j=1;j&lt;grid_heigh-1t;j++)
     {
         if(grid[# i ,j] == FLOOR)
         {
@@ -400,9 +414,9 @@ for(var i=0;i&lt;grid_width;i++)
 }
 */
 //Stones
-for(var i=0;i&lt;grid_width;i++)
+for(var i=1;i&lt;grid_width-1;i++)
 {
-    for(var j=0;j&lt;grid_height;j++)
+    for(var j=1;j&lt;grid_height-1;j++)
     {
         if(grid[# i ,j] == FLOOR)
         {
@@ -419,9 +433,9 @@ for(var i=0;i&lt;grid_width;i++)
     }
 }
 //Vases
-for(var i=0;i&lt;grid_width;i++)
+for(var i=1;i&lt;grid_width-1;i++)
 {
-    for(var j=0;j&lt;grid_height;j++)
+    for(var j=1;j&lt;grid_height-1;j++)
     {
         if(grid[# i ,j] == FLOOR)
         {
@@ -550,6 +564,8 @@ tile_layer_delete(0);
     draw_set_colour(c_black)
     if(path_exists(newpath)) draw_path_all(newpath,0,0,true)
     draw_set_colour(c_white)
+    
+    draw_text(mouse_x,mouse_y,string(grid[#mouse_x div CELL_WIDTH, mouse_y div CELL_HEIGHT]))
 }
 
 
