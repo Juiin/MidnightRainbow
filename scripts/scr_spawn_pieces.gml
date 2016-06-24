@@ -1,9 +1,11 @@
-///scr_spawn_pieces(x_parts,y_parts,sprite,sub_img);
+///scr_spawn_pieces(x_parts,y_parts,sprite,sub_img,blend);
 var x_parts = argument0;
 var y_parts = argument1;
 
 var sprite = argument2;
 var sub_img = argument3;
+
+var blend = argument4;
 
 var width = sprite_get_width(sprite) div x_parts;
 var height = sprite_get_height(sprite) div y_parts;
@@ -19,6 +21,7 @@ for(var i=0;i<x_parts;i++)
         inst.start_y = height*j;
         inst.width = width;
         inst.height = height;
+        inst.blend = blend;
     }
 }
 

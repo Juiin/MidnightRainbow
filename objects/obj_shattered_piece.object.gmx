@@ -31,6 +31,7 @@ start_x = 0;
 start_y = 0;
 width = sprite_get_width(spr_player);
 height = sprite_get_height(spr_player);
+blend = c_white;
 
 speed = random_range(2,4);
 direction = random(360);
@@ -87,7 +88,7 @@ image_angle+=random(3);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_general(sprite,sub_img,start_x,start_y,width,height,x,y,image_xscale,image_yscale,image_angle,image_blend,image_blend,image_blend,image_blend,image_alpha);
+            <string>draw_sprite_general(sprite,sub_img,start_x,start_y,width,height,x,y,image_xscale,image_yscale,image_angle,blend,image_blend,image_blend,image_blend,image_alpha);
 </string>
           </argument>
         </arguments>
