@@ -38,7 +38,7 @@ wp_x = ds_list_create();
 wp_y = ds_list_create();
 
 //Manual
-detect_radius = 90;
+detect_radius = 270;
 
 
 </string>
@@ -67,7 +67,7 @@ detect_radius = 90;
 base_damage = 2;
 base_defense = 0;
 base_move_speed = 1;
-base_health = 250;
+base_health = 100;
 
 //Calc Total Values
 scr_calc_total_stats_enemy();

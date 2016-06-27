@@ -61,7 +61,7 @@ detect_radius = 360;
 base_damage = 2;
 base_defense = 0;
 base_move_speed = 1;
-base_health = 250;
+base_health = 50;
 
 //Calc Total Values
 scr_calc_total_stats_enemy();

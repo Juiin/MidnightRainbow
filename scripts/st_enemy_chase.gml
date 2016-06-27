@@ -48,7 +48,7 @@ else if (prev_los) //if we had los last frame
     
 }
 
-if (distance_to_object(target) < 30)
+if (distance_to_object(target) < 2)
 {
     ds_list_destroy(wp_x);
     ds_list_destroy(wp_y);

@@ -1,4 +1,4 @@
-if(state_timer>room_speed) //after 3 seconds
+if(state_timer>room_speed*3) //after 3 seconds
 {
     state_switch("Roam");
 }

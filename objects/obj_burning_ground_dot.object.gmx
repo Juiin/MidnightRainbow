@@ -36,7 +36,7 @@ tick_rate=room_speed/2;
 attached_to=noone;
 
 //own
-damage_eff = 0.1;
+damage_eff = 0.4;
 var crit = scr_chance(obj_player_parent.total_crit_chance);
 damage = ((obj_player_parent.base_damage + obj_player_parent.flat_damage) * (1+obj_player_parent.more_damage+obj_player_parent.bground_damage_increased))*damage_eff*(1+(crit*obj_player_parent.total_crit_damage));
 </string>

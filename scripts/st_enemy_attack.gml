@@ -1,8 +1,8 @@
 if(state_new)
 {
-    scr_apply_knockback(target,point_direction(x,y,obj_player_parent.x,obj_player_parent.y),1);
+    scr_spawn_hitbox(x,y,room_speed,spr_enemy_melee_1_hitbox,total_damage,obj_player_parent,true,id,true,-1,0);
 }
-if (state_timer > 1)
+if (state_timer > room_speed*3)
 {
     state_switch("Idle");
 }

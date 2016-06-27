@@ -365,7 +365,7 @@ for(var i=1;i&lt;grid_width-1;i++)
                 {
                     if(random(1) &lt; 0.1)
                     {
-                        instance_create(i*CELL_WIDTH+24,j*CELL_HEIGHT+24,choose(obj_enemy_caster,obj_enemy_charger));
+                        instance_create(i*CELL_WIDTH+24,j*CELL_HEIGHT+24,choose(obj_enemy_caster,obj_enemy_charger,obj_enemy_melee_1));
                     }
                     
                 }
