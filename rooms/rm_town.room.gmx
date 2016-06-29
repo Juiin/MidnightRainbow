@@ -19,14 +19,14 @@ else instance_create(448,416,scr_get_player_object());
 
 with(obj_camera)
 {
-    state_switch("Fixed Player");
+    state_switch("Loose Player");
 }</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>
     <isSet>-1</isSet>
-    <w>1016</w>
+    <w>1008</w>
     <h>600</h>
     <showGrid>-1</showGrid>
     <showObjects>-1</showObjects>
@@ -37,8 +37,8 @@ with(obj_camera)
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
     <page>1</page>
-    <xoffset>21</xoffset>
-    <yoffset>-18</yoffset>
+    <xoffset>-141</xoffset>
+    <yoffset>-118</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>

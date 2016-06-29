@@ -150,7 +150,7 @@ if(global.class == "Mage" &amp;&amp; instance_exists(obj_player_mage))
             <kind>1</kind>
             <string>///Gold Count
 draw_set_halign(fa_left);
-scr_text_outlined_scaled(view_xview[view_current]+32,view_yview[view_current]+view_hview[view_current]-96,"Gold: "+string(global.gold),c_white,c_black,1,1);
+scr_text_outlined_scaled(view_xview[view_current]+32,view_yview[view_current]+view_hview[view_current]-96,"Gold: "+string(global.gold),c_orange,c_black,1,1);
 draw_set_halign(fa_center);
 </string>
           </argument>
