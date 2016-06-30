@@ -26,7 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>///Create Buttons
-scr_button_create(640,360,spr_menu_button,"Play",scr_button_play,0);
+scr_button_create(640,310,spr_menu_button,"Play",scr_button_play,0);
+scr_button_create(640,410,spr_menu_button,"Options",scr_button_options,0);
 </string>
           </argument>
         </arguments>

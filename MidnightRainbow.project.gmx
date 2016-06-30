@@ -349,6 +349,9 @@
         <scripts name="Button Scripts">
           <script>scripts\scr_button_play.gml</script>
           <script>scripts\scr_button_goto_town.gml</script>
+          <script>scripts\scr_button_options.gml</script>
+          <script>scripts\scr_button_controls.gml</script>
+          <script>scripts\scr_button_main_menu.gml</script>
         </scripts>
       </scripts>
     </scripts>
@@ -444,6 +447,8 @@
       <object>objects\obj_button</object>
       <object>objects\obj_menu_controller</object>
       <object>objects\obj_class_controller</object>
+      <object>objects\obj_options_controller</object>
+      <object>objects\obj_controls_controller</object>
     </objects>
     <object>objects\obj_shattered_piece</object>
     <object>objects\obj_breakable_parent</object>
@@ -451,6 +456,8 @@
   <rooms name="rooms">
     <room>rooms\rm_init</room>
     <room>rooms\rm_menu</room>
+    <room>rooms\rm_options</room>
+    <room>rooms\rm_controls</room>
     <room>rooms\rm_class_select</room>
     <room>rooms\rm_town</room>
     <room>rooms\rm_overworld</room>

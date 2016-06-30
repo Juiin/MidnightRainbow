@@ -25,9 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Create Class Buttons
-scr_button_create(400,360,spr_class_button,"Mage",scr_button_goto_town,"Mage");
-scr_button_create(800,360,spr_class_button,"Ball(WIP)",scr_button_goto_town,"Ball");
+            <string>///Create Buttons
+scr_button_create(1110,670,spr_menu_button,"Back",scr_button_options,0);
 </string>
           </argument>
         </arguments>

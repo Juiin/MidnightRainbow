@@ -30,6 +30,7 @@ mov_dir=-1;
 knockback_dir=-1;
 knockback_spd=1;
 scr_skill_inputs();
+angle = -1;
 
 
 //mp_potential_settings(180, 5, 5, false);
@@ -416,6 +417,28 @@ hp_convert = scr_range_convert(0,total_health,0,100,hp);
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Rotate
+angle = point_direction(x,y,mouse_x,mouse_y);
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="0">
       <action>
@@ -434,7 +457,7 @@ hp_convert = scr_range_convert(0,total_health,0,100,hp);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
+            <string>draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,angle,image_blend,image_alpha);
 if(state_name == "Knockback") draw_text(x,y-8,"Stunned");
 </string>
           </argument>
