@@ -110,6 +110,8 @@
     <sprite>sprites\spr_crafting</sprite>
     <sprite>sprites\spr_bluebar</sprite>
     <sprite>sprites\spr_stone</sprite>
+    <sprite>sprites\spr_menu_button</sprite>
+    <sprite>sprites\spr_class_button</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_floor4</background>
@@ -341,6 +343,15 @@
     <script>scripts\scr_pos_inside.gml</script>
     <script>scripts\scr_wave.gml</script>
     <script>scripts\scr_is_any.gml</script>
+    <scripts name="Menu">
+      <scripts name="Buttons">
+        <script>scripts\scr_button_create.gml</script>
+        <scripts name="Button Scripts">
+          <script>scripts\scr_button_play.gml</script>
+          <script>scripts\scr_button_goto_town.gml</script>
+        </scripts>
+      </scripts>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_peralta</font>
@@ -429,11 +440,18 @@
     <objects name="Hitbox">
       <object>objects\obj_hitbox_parent</object>
     </objects>
+    <objects name="Menu">
+      <object>objects\obj_button</object>
+      <object>objects\obj_menu_controller</object>
+      <object>objects\obj_class_controller</object>
+    </objects>
     <object>objects\obj_shattered_piece</object>
     <object>objects\obj_breakable_parent</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
+    <room>rooms\rm_menu</room>
+    <room>rooms\rm_class_select</room>
     <room>rooms\rm_town</room>
     <room>rooms\rm_overworld</room>
     <room>rooms\rm_one</room>

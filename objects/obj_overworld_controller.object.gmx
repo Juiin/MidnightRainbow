@@ -212,6 +212,7 @@ scr_ov_reveal(player_x,player_y,1);
             <kind>1</kind>
             <string>///FSM
 state_cleanup();
+io_clear();
 </string>
           </argument>
         </arguments>
