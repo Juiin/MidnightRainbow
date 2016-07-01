@@ -90,7 +90,7 @@ if(mouse_check_button_released(mb_left))
         else if(scr_mouse_inside_key(i,1))
         {
            key[i] = default_key[i];
-           message = key_name[i] + " rebound to default(" + string(default_key[i]) + ")";
+           message = key_name[i] + " rebound to default ( " + scr_keycode_to_char(default_key[i]) + " )";
            message_color = c_green; 
         }
     }
@@ -150,7 +150,7 @@ for(var i=0;i&lt;array_length_1d(key);i++)
     if(scr_mouse_inside_key(i,1)) draw_sprite(spr_controls,2,20,10+(i*58));
     draw_text(25,18+(i*58),key_name[i]);
     draw_set_halign(fa_center);
-    draw_text(910,18+(i*58),scr_keycode_to_char(key[i]));
+    draw_text(915,18+(i*58),scr_keycode_to_char(key[i]));
     draw_text(1100,18+(i*58),"Default");
     draw_set_halign(fa_left);
 }
@@ -163,7 +163,7 @@ draw_set_color(c_black);
 
 
 //DEBUG
-scr_text_outlined_scaled(50,600,string(keyboard_lastkey),c_white,c_black,1,1);
+//scr_text_outlined_scaled(50,600,string(keyboard_lastkey),c_white,c_black,1,1);
 </string>
           </argument>
         </arguments>
