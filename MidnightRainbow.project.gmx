@@ -112,6 +112,7 @@
     <sprite>sprites\spr_stone</sprite>
     <sprite>sprites\spr_menu_button</sprite>
     <sprite>sprites\spr_class_button</sprite>
+    <sprite>sprites\spr_controls</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_floor4</background>
@@ -354,6 +355,8 @@
           <script>scripts\scr_button_main_menu.gml</script>
         </scripts>
       </scripts>
+      <script>scripts\scr_mouse_inside_key.gml</script>
+      <script>scripts\scr_key_already_in_use.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

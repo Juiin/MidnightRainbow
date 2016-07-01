@@ -425,6 +425,57 @@ room_goto_next();
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Control Keys
+globalvar default_key;
+default_key[0] = ord("W"); //Forwards
+default_key[1] = ord("S"); //Backwards
+default_key[2] = ord("A"); //Left
+default_key[3] = ord("D"); //Right
+default_key[4] = ord("1"); //Skill One
+default_key[5] = ord("2"); //Skill Two
+default_key[6] = ord("3"); //Skill Three
+default_key[7] = ord("4"); //Skill Four
+
+globalvar key;
+key[0] = ord("W"); //Forwards
+key[1] = ord("S"); //Backwards
+key[2] = ord("A"); //Left
+key[3] = ord("D"); //Right
+key[4] = ord("1"); //Skill One
+key[5] = ord("2"); //Skill Two
+key[6] = ord("3"); //Skill Three
+key[7] = ord("4"); //Skill Four
+
+
+globalvar key_name;
+key_name[0] = "Forward";
+key_name[1] = "Backward";
+key_name[2] = "Left";
+key_name[3] = "Right";
+key_name[4] = "Ability One";
+key_name[5] = "Ability Two";
+key_name[6] = "Ability Three";
+key_name[7] = "Ability Four";
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="3" enumb="0">
       <action>

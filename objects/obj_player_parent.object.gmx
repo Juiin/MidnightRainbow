@@ -265,8 +265,8 @@ state_update();
           <argument>
             <kind>1</kind>
             <string>///Read Input
-x_spd = keyboard_check(ord("D"))-keyboard_check(ord("A"));
-y_spd = keyboard_check(ord("S"))-keyboard_check(ord("W"));
+x_spd = keyboard_check(key[3])-keyboard_check(key[2]);
+y_spd = keyboard_check(key[1])-keyboard_check(key[0]);
 
 
 /*
