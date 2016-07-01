@@ -105,13 +105,13 @@ if(rebind)
         {
             rebind = false;
             key_id_to_rebind = -1;
-            message = string(keyboard_lastkey) + " already in use!";
+            message = scr_keycode_to_char(keyboard_lastkey) + " already in use!";
             message_color = c_orange;
         }
         else
         {
             key[key_id_to_rebind] = keyboard_lastkey;
-            message = key_name[key_id_to_rebind] + " rebound to " + string(keyboard_lastkey);
+            message = key_name[key_id_to_rebind] + " rebound to " + scr_keycode_to_char(keyboard_lastkey);
             message_color = c_green;
             rebind = false;
             key_id_to_rebind = -1;
@@ -149,8 +149,10 @@ for(var i=0;i&lt;array_length_1d(key);i++)
     if(scr_mouse_inside_key(i,0)) draw_sprite(spr_controls,1,20,10+(i*58));
     if(scr_mouse_inside_key(i,1)) draw_sprite(spr_controls,2,20,10+(i*58));
     draw_text(25,18+(i*58),key_name[i]);
-    draw_text(910,18+(i*58),key[i]);
+    draw_set_halign(fa_center);
+    draw_text(910,18+(i*58),scr_keycode_to_char(key[i]));
     draw_text(1100,18+(i*58),"Default");
+    draw_set_halign(fa_left);
 }
 
 scr_text_outlined_scaled(50,655,message,message_color,c_black,1,1);
@@ -158,6 +160,10 @@ scr_text_outlined_scaled(50,655,message,message_color,c_black,1,1);
 
 draw_set_halign(fa_center);
 draw_set_color(c_black);
+
+
+//DEBUG
+scr_text_outlined_scaled(50,600,string(keyboard_lastkey),c_white,c_black,1,1);
 </string>
           </argument>
         </arguments>

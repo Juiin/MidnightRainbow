@@ -443,8 +443,8 @@ room_goto_next();
             <kind>1</kind>
             <string>///Control Keys
 globalvar default_key;
-default_key[0] = ord("W"); //Forwards
-default_key[1] = ord("S"); //Backwards
+default_key[0] = ord("W"); //Forward
+default_key[1] = ord("S"); //Back
 default_key[2] = ord("A"); //Left
 default_key[3] = ord("D"); //Right
 default_key[4] = ord("1"); //Skill One
@@ -453,8 +453,8 @@ default_key[6] = ord("3"); //Skill Three
 default_key[7] = ord("4"); //Skill Four
 
 globalvar key;
-key[0] = ord("W"); //Forwards
-key[1] = ord("S"); //Backwards
+key[0] = ord("W"); //Forward
+key[1] = ord("S"); //Back
 key[2] = ord("A"); //Left
 key[3] = ord("D"); //Right
 key[4] = ord("1"); //Skill One
@@ -465,7 +465,7 @@ key[7] = ord("4"); //Skill Four
 
 globalvar key_name;
 key_name[0] = "Forward";
-key_name[1] = "Backward";
+key_name[1] = "Back";
 key_name[2] = "Left";
 key_name[3] = "Right";
 key_name[4] = "Ability One";

@@ -280,6 +280,7 @@
       <script>scripts\scr_spawn_hitbox.gml</script>
       <script>scripts\scr_refresh_cd.gml</script>
       <script>scripts\draw_sprite_skew_ext.gml</script>
+      <script>scripts\scr_keycode_to_char.gml</script>
     </scripts>
     <scripts name="Trash">
       <script>scripts\create_exit.gml</script>
